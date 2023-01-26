@@ -17,6 +17,9 @@ body {
     margin: 40px auto 20px auto;
     border: 1px solid lightgrey;
     box-shadow: 0px 0px 6px lightgrey;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 h1 {
@@ -26,8 +29,45 @@ h1 {
     padding: 0;
 }
 
+.toolbar {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: rebeccapurple;
+    color: white;
+    border-radius: 0.15rem;
+    border: 1px solid rebeccapurple;
+    box-shadow: 1px 1px 6px grey;
+    padding: 10px 36px;
+}
+
+button:active {
+    background-color: white;
+    color: rebeccapurple;
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    border: 0;
+    flex-grow: 1;
+}
+
 .grid-box {
-    width: 20px;
-    height: 20px;
-    border: 1px solid lightgrey;
+    flex-grow: 1;
+    border: 0.5px solid lightgrey;
+    margin: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+}
+
+.active {
+    background-color: aqua;
 }
