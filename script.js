@@ -1,10 +1,14 @@
+//create DOM node for sketchpad
 const sketchPad = document.querySelector('.sketch-pad');
-console.log(sketchPad);
 
 let mouseDown = false;
 function handleMove(e) {
     if(mouseDown) {
-        e.target.classList.add('active');
+        let r = Math.floor(Math.random()*255);
+        let g = Math.floor(Math.random()*255);
+        let b = Math.floor(Math.random()*255);
+        console.log(r, g, b);
+        e.target.style.backgroundColor = `rgb(${r},${g}, ${b})`;
     }
 }
 
