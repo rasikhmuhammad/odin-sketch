@@ -2,13 +2,26 @@
 const sketchPad = document.querySelector('.sketch-pad');
 
 let mouseDown = false;
-function handleMove(e) {
+
+//unction to color div when mouse holds click down on it
+function handleMouseDown(e) {
+    console.log(e);
+    mouseDown = true;
+
+    let r = Math.floor(Math.random()*255);
+    let g = Math.floor(Math.random()*255);
+    let b = Math.floor(Math.random()*255);
+    e.target.style.backgroundColor = `rgb(${r},${g},${b})`;
+}
+
+//function to color div when mouse enters it
+function handleEnter(e) {
+    console.log(e);
     if(mouseDown) {
         let r = Math.floor(Math.random()*255);
         let g = Math.floor(Math.random()*255);
         let b = Math.floor(Math.random()*255);
-        console.log(r, g, b);
-        e.target.style.backgroundColor = `rgb(${r},${g}, ${b})`;
+        e.target.style.backgroundColor = `rgb(${r},${g},${b})`;
     }
 }
 
@@ -31,9 +44,9 @@ function createGrid(gridSize) {
     const gridBoxes = document.querySelectorAll('.grid-box');
 
     gridBoxes.forEach((gridBox) => {
-    gridBox.addEventListener('mousedown', () => mouseDown = true);
-    gridBox.addEventListener('mouseup', () => mouseDown = false);
-    gridBox.addEventListener('mousemove', handleMove);
+    gridBox.addEventListener('pointerdown', handleMouseDown);
+    gridBox.addEventListener('pointerup', () => mouseDown = false);
+    gridBox.addEventListener('mouseenter', handleEnter);
 });
 }
 
